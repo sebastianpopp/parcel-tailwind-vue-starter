@@ -1,15 +1,14 @@
 <template>
     <div class="min-h-screen flex justify-center items-center">
-        <h1 class="text-4xl font-light tracking-tight sm:text-6xl">Hello {{ name }}!</h1>
+        <h1 class="text-4xl font-light tracking-tight sm:text-6xl cursor-pointer" @click="toggle">Hello {{ name }}!</h1>
     </div>
 </template>
 
-<script>
-    export default {
-        data() {
-            return {
-                name: "Vue",
-            };
-        },
-    };
+<script setup>
+import { ref } from 'vue';
+
+const name = ref('Vue');
+const toggle = () => {
+    name.value = name.value === 'Vue' ? 'World' : 'Vue';
+};
 </script>
